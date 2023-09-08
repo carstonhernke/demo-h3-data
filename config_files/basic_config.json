@@ -1,0 +1,45 @@
+{
+    "sources": [
+        {
+            "id": 0,
+            "type": "remote_file",
+            "name": "Honeycomb Data",
+            "location": "https://app.honeycomb.place/data/us_census_acs.parquet"
+        }
+    ],
+    "layers": [
+        {
+            "name": "Median Household Income",
+            "description": "Median household income from the 2019 US Census ACS, interpolated to H3",
+            "color": "#9D3F9D",
+            "opacity": 0.4,
+            "selected": true,
+            "aggregationType": "AVG",
+            "sourceId": 0,
+            "calculateMetrics": true,
+            "columnName": "b19013e1"
+        }
+    ],
+    "objects": [],
+    "title": "My Map",
+    "description": "My Test Description",
+    "viewState": {
+        "width": 926,
+        "height": 774,
+        "latitude": 37.81536373135491,
+        "longitude": -122.36612474716014,
+        "zoom": 9.839101371967667,
+        "bearing": 0,
+        "pitch": 0,
+        "altitude": 1.5,
+        "maxZoom": 20,
+        "minZoom": 2.4,
+        "maxPitch": 60,
+        "minPitch": 0,
+        "position": [
+            0,
+            0,
+            0
+        ]
+    }
+}
