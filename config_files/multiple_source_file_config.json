@@ -1,0 +1,169 @@
+{
+    "sources": [
+        {
+            "id": 0,
+            "type": "remote_file",
+            "name": "Parquet Dataset",
+            "location": [
+                "https://honeycomb-geospatial-app.s3.amazonaws.com/data/parquet_dataset_test/quakes/month%3D1/data_0.parquet",
+                "https://honeycomb-geospatial-app.s3.amazonaws.com/data/parquet_dataset_test/quakes/month%3D2/data_0.parquet"
+            ]
+        }
+    ],
+    "layers": [
+        {
+            "name": "Count of Points",
+            "description": "",
+            "color": "#D33D17",
+            "opacity": 0.4,
+            "selected": true,
+            "aggregationType": "SUM",
+            "sourceId": 0,
+            "calculateMetrics": true,
+            "columnName": "geoid"
+        },
+        {
+            "name": "month",
+            "description": "AVG of month",
+            "color": "#29A634",
+            "opacity": 0.4,
+            "selected": false,
+            "aggregationType": "AVG",
+            "sourceId": 0,
+            "calculateMetrics": true,
+            "columnName": "month"
+        },
+        {
+            "name": "depth",
+            "description": "AVG of depth",
+            "color": "#00A396",
+            "opacity": 0.4,
+            "selected": false,
+            "aggregationType": "AVG",
+            "sourceId": 0,
+            "calculateMetrics": true,
+            "columnName": "depth"
+        },
+        {
+            "name": "mag",
+            "description": "AVG of mag",
+            "color": "#147EB3",
+            "opacity": 0.4,
+            "selected": false,
+            "aggregationType": "AVG",
+            "sourceId": 0,
+            "calculateMetrics": true,
+            "columnName": "mag"
+        },
+        {
+            "name": "nst",
+            "description": "AVG of nst",
+            "color": "#7961DB",
+            "opacity": 0.4,
+            "selected": false,
+            "aggregationType": "AVG",
+            "sourceId": 0,
+            "calculateMetrics": true,
+            "columnName": "nst"
+        },
+        {
+            "name": "gap",
+            "description": "AVG of gap",
+            "color": "#9D3F9D",
+            "opacity": 0.4,
+            "selected": false,
+            "aggregationType": "AVG",
+            "sourceId": 0,
+            "calculateMetrics": true,
+            "columnName": "gap"
+        },
+        {
+            "name": "dmin",
+            "description": "AVG of dmin",
+            "color": "#D33D17",
+            "opacity": 0.4,
+            "selected": false,
+            "aggregationType": "AVG",
+            "sourceId": 0,
+            "calculateMetrics": true,
+            "columnName": "dmin"
+        },
+        {
+            "name": "rms",
+            "description": "AVG of rms",
+            "color": "#147EB3",
+            "opacity": 0.4,
+            "selected": false,
+            "aggregationType": "AVG",
+            "sourceId": 0,
+            "calculateMetrics": true,
+            "columnName": "rms"
+        },
+        {
+            "name": "horizontalError",
+            "description": "AVG of horizontalError",
+            "color": "#00A396",
+            "opacity": 0.4,
+            "selected": false,
+            "aggregationType": "AVG",
+            "sourceId": 0,
+            "calculateMetrics": true,
+            "columnName": "horizontalError"
+        },
+        {
+            "name": "depthError",
+            "description": "AVG of depthError",
+            "color": "#29A634",
+            "opacity": 0.4,
+            "selected": false,
+            "aggregationType": "AVG",
+            "sourceId": 0,
+            "calculateMetrics": true,
+            "columnName": "depthError"
+        },
+        {
+            "name": "magError",
+            "description": "AVG of magError",
+            "color": "#D33D17",
+            "opacity": 0.4,
+            "selected": false,
+            "aggregationType": "AVG",
+            "sourceId": 0,
+            "calculateMetrics": true,
+            "columnName": "magError"
+        },
+        {
+            "name": "magNst",
+            "description": "AVG of magNst",
+            "color": "#147EB3",
+            "opacity": 0.4,
+            "selected": false,
+            "aggregationType": "AVG",
+            "sourceId": 0,
+            "calculateMetrics": true,
+            "columnName": "magNst"
+        }
+    ],
+    "objects": [],
+    "title": "Add title",
+    "description": "Add description",
+    "viewState": {
+        "width": 1512,
+        "height": 774,
+        "latitude": 37.73473415067805,
+        "longitude": -122.26808547122016,
+        "zoom": 10.14578214225092,
+        "bearing": 0,
+        "pitch": 0,
+        "altitude": 1.5,
+        "maxZoom": 20,
+        "minZoom": 2.4,
+        "maxPitch": 60,
+        "minPitch": 0,
+        "position": [
+            0,
+            0,
+            0
+        ]
+    }
+}

@@ -1,0 +1,118 @@
+{
+    "sources": [
+        {
+            "id": 0,
+            "type": "remote_file",
+            "name": "Kontur Data",
+            "location": "https://app.honeycomb.place/data/world_population_sorted_rg_122880_zstd.parquet"
+        }
+    ],
+    "layers": [
+        {
+            "name": "Population",
+            "description": "Number of people residing in the area",
+            "color": "#D1980B",
+            "opacity": 0.4,
+            "selected": true,
+            "aggregationType": "SUM",
+            "sourceId": 0,
+            "calculateMetrics": true,
+            "columnName": "population"
+        }
+    ],
+    "objects": [
+        {
+            "id": 0,
+            "name": "The Loop",
+            "geo": {
+                "type": "Feature",
+                "properties": {
+                    "selected": true
+                },
+                "geometry": {
+                    "type": "Polygon",
+                    "coordinates": [
+                        [
+                            [
+                                -87.637884,
+                                41.887189
+                            ],
+                            [
+                                -87.629063,
+                                41.887476
+                            ],
+                            [
+                                -87.622822,
+                                41.888926
+                            ],
+                            [
+                                -87.612689,
+                                41.888295
+                            ],
+                            [
+                                -87.616185,
+                                41.880014
+                            ],
+                            [
+                                -87.616241,
+                                41.873398
+                            ],
+                            [
+                                -87.635256,
+                                41.873447
+                            ],
+                            [
+                                -87.638012,
+                                41.877559
+                            ],
+                            [
+                                -87.637884,
+                                41.887189
+                            ]
+                        ]
+                    ]
+                }
+            },
+            "selected": true,
+            "stats": [
+                {
+                    "id": 0,
+                    "name": "Population",
+                    "value": 23495,
+                    "aggregationType": "SUM",
+                    "color": "#D1980B"
+                }
+            ],
+            "buffer_size": 0,
+            "type": "Polygon"
+        }
+    ],
+    "title": "Chicago Loop Population",
+    "description": "A visualization of the number of people who live in the Loop, with data from Kontur.",
+    "viewState": {
+        "width": 1512,
+        "height": 774,
+        "latitude": 41.88300745716074,
+        "longitude": -87.62130918779111,
+        "zoom": 12.815030667706257,
+        "bearing": 0,
+        "pitch": 0,
+        "altitude": 1.5,
+        "maxZoom": 20,
+        "minZoom": 2.4,
+        "maxPitch": 60,
+        "minPitch": 0,
+        "position": [
+            0,
+            0,
+            0
+        ]
+    },
+    "settings": {
+        "layerDisplayResolution": "high",
+        "tooltipsEnabled": true,
+        "isLayerSidebarVisible": true,
+        "isObjectSidebarVisible": true,
+        "isTitleDescriptionEditable": false
+    }
+}

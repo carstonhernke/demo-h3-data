@@ -41,5 +41,12 @@
             0,
             0
         ]
+    },
+    "settings": {
+        "layerDisplayResolution": "normal",
+        "tooltipsEnabled": true,
+        "isLayerSidebarVisible": true,
+        "isObjectSidebarVisible": true,
+        "isTitleDescriptionEditable": false
     }
 }
