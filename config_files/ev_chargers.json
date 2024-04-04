@@ -1,0 +1,134 @@
+{
+    "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9kdWN0IjoiaG9uZXljb21iIiwiYWxsb3dlZF9jb25maWdfZG9tYWluIjoiXmh0dHBzOlxcL1xcL3Jhd1xcLmdpdGh1YnVzZXJjb250ZW50XFwuY29tXFwvY2Fyc3Rvbmhlcm5rZVxcL2RlbW8taDMtZGF0YSJ9.Gj7CJOtE061vYht4WHx73QUakDPLFHtQfcwRhJzh4e-knSmO0YSo2s5Eu7v7tRarL8hEomeQyQAwFuiQj9t2kNeM4UdgEMbZftSnS6lq5jGMUiS36JKqOvqpK_qO3RIktDgsGwBg0odvSoo-FMwv8ldVNbOs4KaHmpUZqyaLpkmmtC4qwx0jw4hBd3_hH8zC03wvqJe4OdPaL3KSSI5LD0PJqjx9OkaxeAp2FqaolOjUV2_YEbCgk641HN6o6mdbqSa47jMBRau9rkMeNr-e7Ab_J4AHVb8NzYf0fp3WM2l_z74L4e_lX6fXgDrvvV1r7oE5oBwNEgHJKCt9PCoHTA",
+    "settings": {
+        "theme": "dark",
+        "locale": "en",
+        "aggregationDetailLevel": 10,
+        "initialView": {
+            "latitude": 37.0902,
+            "longitude": -95.7129,
+            "zoom": 4
+        }
+    },
+    "dataSources": [
+        {
+            "id": "ev_chargers",
+            "name": "EV Charging Stations",
+            "type": "csv",
+            "location": "https://raw.githubusercontent.com/carstonhernke/demo-h3-data/main/parquet/ev_chargers.parquet",
+            "fields": [
+                {
+                    "colname": "Latitude",
+                    "type": "DOUBLE",
+                    "geographicType": "lat",
+                    "label": "Latitude",
+                    "id": "latitude"
+                },
+                {
+                    "colname": "Longitude",
+                    "type": "DOUBLE",
+                    "geographicType": "lon",
+                    "label": "Longitude",
+                    "id": "longitude"
+                },
+                {
+                    "colname": "Station Name",
+                    "type": "STRING",
+                    "label": "Station Name",
+                    "id": "station_name"
+                },
+                {
+                    "colname": "EV Network",
+                    "type": "STRING",
+                    "label": "EV Network",
+                    "id": "ev_network"
+                },
+                {
+                    "colname": "EV Connector Types",
+                    "type": "STRING",
+                    "label": "EV Connector Types",
+                    "id": "ev_connector_types"
+                },
+                {
+                    "colname": "Access Days Time",
+                    "type": "STRING",
+                    "label": "Access Rules",
+                    "id": "access_rules"
+                }
+            ],
+            "authType": "none",
+            "mutable": false
+        }
+    ],
+    "mapLayers": [
+        {
+            "id": "ev_chargers_layer",
+            "label": "EV Charging Stations",
+            "layerType": "PointLayer",
+            "latitudeFieldId": "latitude",
+            "longitudeFieldId": "longitude",
+            "dataSourceId": "ev_chargers",
+            "visible": true,
+            "color": "#FF5733",
+            "opacity": 0.8,
+            "radiusMeters": 100,
+            "radiusMinPixels": 2,
+            "enableTooltips": true,
+            "tooltipFieldIds": [
+                "station_name",
+                "ev_network",
+                "ev_connector_types",
+                "access_rules"
+            ]
+        },
+        {
+            "id": "heatmap",
+            "label": "EV Chargers Heatmap",
+            "layerType": "HoneycombLayer",
+            "dataSourceId": "ev_chargers",
+            "visible": false,
+            "h3Field": "h3",
+            "measureField": "station_name",
+            "aggregationType": "count",
+            "color": "red",
+            "opacity": 0.4
+        }
+    ],
+    "interface": {
+        "leftSidebar": {
+            "cards": [
+                {
+                    "cardType": "TitleCard",
+                    "title": "US Electric Vehicle Charging Stations 🚗⚡️",
+                    "subtitle": "Visualizing electric vehicle charging stations across the United States"
+                }
+            ],
+            "defaultOpen": true
+        },
+        "rightSidebar": {
+            "cards": [
+                {
+                    "cardType": "LegendCard"
+                },
+                {
+                    "cardType": "BigNumberCard",
+                    "dataSourceId": "ev_chargers",
+                    "title": "Total Charging Stations",
+                    "subtitle": "Total number of electric vehicle charging stations",
+                    "measureFieldId": "station_name",
+                    "aggregationType": "count"
+                },
+                {
+                    "cardType": "HorizontalBarChartCard",
+                    "dataSourceId": "ev_chargers",
+                    "title": "Charging Stations by Network",
+                    "subtitle": "Number of charging stations per EV network",
+                    "dimensionFieldId": "ev_network",
+                    "measureFieldId": "station_name",
+                    "aggregationType": "count"
+                }
+            ],
+            "defaultOpen": true
+        }
+    }
+}
