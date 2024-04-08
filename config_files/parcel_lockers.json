@@ -51,7 +51,7 @@
             "id": "berlin_districts",
             "name": "Berlin Districts",
             "type": "geojson",
-            "location": "https://raw.githubusercontent.com/carstonhernke/demo-h3-data/main/geojson/berlin_bezirksgrenzen.json",
+            "location": "https://raw.githubusercontent.com/carstonhernke/demo-h3-data/main/json/berlin_bezirksgrenzen.json",
             "fields": [
                 {
                     "colname": "Gemeinde_name",
