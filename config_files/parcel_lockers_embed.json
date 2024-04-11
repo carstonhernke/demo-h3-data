@@ -108,7 +108,12 @@
                 {
                     "cardType": "HeaderCard",
                     "moduleName": "Made with Honeycomb"
-                },
+                }
+            ],
+            "defaultOpen": true
+        },
+        "rightSidebar": {
+            "cards": [
                 {
                     "cardType": "TitleCard",
                     "title": "Parcel Pickup Lockers in Berlin 📦📍",
@@ -116,29 +121,8 @@
                 },
                 {
                     "cardType": "LegendCard"
-                },
-                {
-                    "cardType": "BigNumberCard",
-                    "dataSourceId": "berlin_lockers",
-                    "title": "Total Parcel Lockers",
-                    "subtitle": "Total number of parcel pickup lockers",
-                    "measureFieldId": "latitude",
-                    "aggregationType": "count"
-                },
-                {
-                    "cardType": "HorizontalBarChartCard",
-                    "dataSourceId": "berlin_lockers",
-                    "title": "Parcel Lockers by Operator",
-                    "subtitle": "Number of parcel pickup lockers by operator",
-                    "dimensionFieldId": "operator",
-                    "measureFieldId": "name",
-                    "aggregationType": "count"
                 }
             ],
-            "defaultOpen": true
-        },
-        "rightSidebar": {
-            "cards": [],
             "defaultOpen": true
         }
     }
