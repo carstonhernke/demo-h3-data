@@ -1,0 +1,145 @@
+{
+    "token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJwcm9kdWN0IjoiaG9uZXljb21iIiwiYWxsb3dlZF9jb25maWdfZG9tYWluIjoiXmh0dHBzOlxcL1xcL3Jhd1xcLmdpdGh1YnVzZXJjb250ZW50XFwuY29tXFwvY2Fyc3Rvbmhlcm5rZVxcL2RlbW8taDMtZGF0YSJ9.Gj7CJOtE061vYht4WHx73QUakDPLFHtQfcwRhJzh4e-knSmO0YSo2s5Eu7v7tRarL8hEomeQyQAwFuiQj9t2kNeM4UdgEMbZftSnS6lq5jGMUiS36JKqOvqpK_qO3RIktDgsGwBg0odvSoo-FMwv8ldVNbOs4KaHmpUZqyaLpkmmtC4qwx0jw4hBd3_hH8zC03wvqJe4OdPaL3KSSI5LD0PJqjx9OkaxeAp2FqaolOjUV2_YEbCgk641HN6o6mdbqSa47jMBRau9rkMeNr-e7Ab_J4AHVb8NzYf0fp3WM2l_z74L4e_lX6fXgDrvvV1r7oE5oBwNEgHJKCt9PCoHTA",
+    "settings": {
+        "theme": "light",
+        "locale": "en",
+        "aggregationDetailLevel": 10,
+        "initialView": {
+            "latitude": 52.5200,
+            "longitude": 13.4050,
+            "zoom": 10
+        }
+    },
+    "dataSources": [
+        {
+            "id": "berlin_lockers",
+            "name": "Parcel Pickup Lockers",
+            "type": "csv",
+            "location": "https://raw.githubusercontent.com/carstonhernke/demo-h3-data/main/parquet/berlin_lockers.parquet",
+            "fields": [
+                {
+                    "colname": "lat",
+                    "type": "DOUBLE",
+                    "geographicType": "lat",
+                    "label": "Latitude",
+                    "id": "latitude"
+                },
+                {
+                    "colname": "lon",
+                    "type": "DOUBLE",
+                    "geographicType": "lon",
+                    "label": "Longitude",
+                    "id": "longitude"
+                },
+                {
+                    "colname": "name",
+                    "type": "STRING",
+                    "label": "Name",
+                    "id": "name"
+                },
+                {
+                    "colname": "operator",
+                    "type": "STRING",
+                    "label": "Operator",
+                    "id": "operator"
+                }
+            ],
+            "authType": "none",
+            "mutable": false
+        },
+        {
+            "id": "berlin_districts",
+            "name": "Berlin Districts",
+            "type": "geojson",
+            "location": "https://raw.githubusercontent.com/carstonhernke/demo-h3-data/main/json/berlin_bezirksgrenzen.json",
+            "fields": [
+                {
+                    "colname": "Gemeinde_name",
+                    "type": "STRING",
+                    "label": "District Name",
+                    "id": "district"
+                }
+            ],
+            "mutable": false
+        }
+    ],
+    "mapLayers": [
+        {
+            "id": "berlin_lockers_layer",
+            "label": "Parcel Pickup Lockers",
+            "layerType": "PointLayer",
+            "latitudeFieldId": "latitude",
+            "longitudeFieldId": "longitude",
+            "dataSourceId": "berlin_lockers",
+            "visible": true,
+            "color": "#3366ff",
+            "opacity": 0.8,
+            "radiusMeters": 25,
+            "radiusMinPixels": 2,
+            "enableTooltips": true,
+            "tooltipFieldIds": [
+                "name",
+                "operator"
+            ]
+        },
+        {
+            "id": "lockers_heatmap",
+            "label": "Lockers Heatmap",
+            "layerType": "HoneycombLayer",
+            "dataSourceId": "berlin_lockers",
+            "visible": true,
+            "h3Field": "h3",
+            "measureField": "latitude",
+            "aggregationType": "count",
+            "color": "green",
+            "opacity": 0.3
+        },
+        {
+            "id": "berlin_districts_layer",
+            "label": "Berlin Districts",
+            "layerType": "PolygonLayer",
+            "dataSourceId": "berlin_districts",
+            "visible": true
+        }
+    ],
+    "interface": {
+        "leftSidebar": {
+            "cards": [
+                {
+                    "cardType": "HeaderCard",
+                    "moduleName": "Made with Honeycomb"
+                },
+                {
+                    "cardType": "TitleCard",
+                    "title": "Parcel Pickup Lockers in Berlin 📦📍",
+                    "subtitle": "Visualizing parcel pickup lockers across Berlin, Germany"
+                },
+                {
+                    "cardType": "LegendCard"
+                },
+                {
+                    "cardType": "BigNumberCard",
+                    "dataSourceId": "berlin_lockers",
+                    "title": "Total Parcel Lockers",
+                    "subtitle": "Total number of parcel pickup lockers",
+                    "measureFieldId": "latitude",
+                    "aggregationType": "count"
+                },
+                {
+                    "cardType": "HorizontalBarChartCard",
+                    "dataSourceId": "berlin_lockers",
+                    "title": "Parcel Lockers by Operator",
+                    "subtitle": "Number of parcel pickup lockers by operator",
+                    "dimensionFieldId": "operator",
+                    "measureFieldId": "name",
+                    "aggregationType": "count"
+                }
+            ],
+            "defaultOpen": true
+        },
+        "rightSidebar": {
+            "cards": [],
+            "defaultOpen": true
+        }
+    }
+}
