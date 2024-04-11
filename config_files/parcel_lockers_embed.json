@@ -99,7 +99,7 @@
             "label": "Berlin Districts",
             "layerType": "PolygonLayer",
             "dataSourceId": "berlin_districts",
-            "visible": true
+            "visible": false
         }
     ],
     "interface": {
@@ -107,7 +107,7 @@
             "cards": [
                 {
                     "cardType": "HeaderCard",
-                    "moduleName": "Made with Honeycomb"
+                    "moduleName": "Honeycomb Data Explorer"
                 }
             ],
             "defaultOpen": true
@@ -116,11 +116,20 @@
             "cards": [
                 {
                     "cardType": "TitleCard",
-                    "title": "Parcel Pickup Lockers in Berlin 📦📍",
-                    "subtitle": "Visualizing parcel pickup lockers across Berlin, Germany"
+                    "title": "Parcel Pickup Lockers in Berlin 📦",
+                    "subtitle": "Data from OpenStreetMap."
                 },
                 {
                     "cardType": "LegendCard"
+                },
+                {
+                    "cardType": "HorizontalBarChartCard",
+                    "dataSourceId": "berlin_lockers",
+                    "title": "Parcel Lockers by Operator",
+                    "subtitle": "Number of parcel pickup lockers by operator",
+                    "dimensionFieldId": "operator",
+                    "measureFieldId": "name",
+                    "aggregationType": "count"
                 }
             ],
             "defaultOpen": true

@@ -87,7 +87,7 @@
             "label": "Lockers Heatmap",
             "layerType": "HoneycombLayer",
             "dataSourceId": "berlin_lockers",
-            "visible": false,
+            "visible": true,
             "h3Field": "h3",
             "measureField": "latitude",
             "aggregationType": "count",
@@ -107,12 +107,12 @@
             "cards": [
                 {
                     "cardType": "HeaderCard",
-                    "moduleName": "Made with Honeycomb"
+                    "moduleName": "Honeycomb Data Explorer"
                 },
                 {
                     "cardType": "TitleCard",
-                    "title": "Parcel Pickup Lockers in Berlin 📦📍",
-                    "subtitle": "Visualizing parcel pickup lockers across Berlin, Germany"
+                    "title": "Parcel Pickup Lockers in Berlin 📦",
+                    "subtitle": "Data from OpenStreetMap."
                 },
                 {
                     "cardType": "ZoneTableCard",
